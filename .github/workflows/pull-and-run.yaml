@@ -2,7 +2,7 @@ name: Test
 on:
   # the 1st condition
   workflow_run:
-    workflows: ["build-and-push"]
+    workflows: ["build_and_push"]
     branches: [main]
     types:
       - completed
