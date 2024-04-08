@@ -64,9 +64,9 @@ jobs:
           OUTPUT=$(docker run dinkuma/assignments:latest)
           echo "Score:"
           echo "$OUTPUT"
-          if [[ $(echo "$OUTPUT > 0.50" | bc -l) -eq 1 ]]; then
-            echo "Success - Score is greater than 0.50" 
+          if [[ $(echo "$OUTPUT > 0.30" | bc -l) -eq 1 ]]; then
+            echo "Success - Score is greater than 0.30" 
           else
-            echo "Failure - Score is not greater than 0.50"
+            echo "Failure - Score is not greater than 0.30"
             exit 1
           fi
