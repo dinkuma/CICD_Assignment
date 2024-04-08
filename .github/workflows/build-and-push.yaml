@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: Train
 on:
   pull_request:
     branches: [main]
@@ -26,7 +26,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build --tag your_registry/your_image_name:latest .
+        run: docker build --tag dinkuma/assignments:latest .
       
       - name: Push Docker image
-        run: docker push your_registry/your_image_name:latest
+        run: docker push dinkuma/assignments:latest
