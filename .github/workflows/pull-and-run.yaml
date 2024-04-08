@@ -10,6 +10,7 @@ on:
 jobs:
   pull_and_run:
     runs-on: ubuntu-latest
+    needs: Train
     permissions:
       contents: read
     steps:
