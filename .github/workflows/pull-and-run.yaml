@@ -2,7 +2,7 @@ name: Test
 on:
   # the 1st condition
   workflow_run:
-    workflows: ["Train"]
+    workflows: [Train]
     types:
       - completed
 
