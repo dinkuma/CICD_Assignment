@@ -23,7 +23,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Pull Docker image
-        run: docker pull your_registry/your_image_name:latest
+        run: docker pull dinkuma/assignments:latest
 
       - name: Run Docker container
         run: |
@@ -34,4 +34,3 @@ jobs:
             echo "Insufficient Accuracy" 
             exit 1
           fi
-Pull and Run Docker Image
