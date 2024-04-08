@@ -3,7 +3,7 @@ on:
   # the 1st condition
   workflow_run:
     workflows: ["Train"]
-    branches: [main]
+    branches: [test1]
     types:
       - completed
 
