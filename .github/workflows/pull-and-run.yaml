@@ -31,3 +31,28 @@ jobs:
             echo "Failure - Score is not greater than 0.50"
             exit 1
           fi
+  update_status:
+    needs: pull_and_run
+    runs-on: ubuntu-latest
+    if: ${{ always() }}  # Always run this job
+    steps:
+      - name: Set status for GitHub commit
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const context = JSON.parse(process.env.GITHUB_CONTEXT);
+            const status = context.payload.workflow_run.conclusion;
+            const octokit = context.octokit;
+            const owner = context.payload.repository.owner.login;
+            const repo = context.payload.repository.name;
+            const ref = context.payload.workflow_run.head_commit.id;
+            const state = status === 'success' ? 'success' : 'failure';
+            await octokit.repos.createCommitStatus({
+              owner,
+              repo,
+              sha: ref,
+              state,
+              context: 'Test', // This should match the name of your job
+              description: status === 'success' ? 'Test passed' : 'Test failed'
+            });
