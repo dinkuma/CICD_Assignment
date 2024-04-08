@@ -2,7 +2,7 @@ name: Train and Test
 
 on:
   pull_request:
-    branches: [main]
+    branches: [one_action_failed]
     paths-ignore:
       - 'data/**'
       - 'requirements.txt'
