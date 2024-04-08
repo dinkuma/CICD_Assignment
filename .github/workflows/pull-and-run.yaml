@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Docker container
         run: |
-          OUTPUT=$(docker run your_registry/your_image_name:latest)
+          OUTPUT=$(docker run dinkuma/assignments:latest)
           echo "Score:"
           echo "$OUTPUT"
           if [[ `echo "$OUTPUT 0.50" | awk '{print ($1 < $2)}'` == 1 ]]; then
