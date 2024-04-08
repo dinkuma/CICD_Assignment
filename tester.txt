@@ -1,1 +1,1 @@
-Main
+Both action passed
